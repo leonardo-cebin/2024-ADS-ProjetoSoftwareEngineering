@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="pt">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback do Usuário</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        display: flex;
+        height: 100vh;
+      }
+
+      /* Lado esquerdo - Formulário de Feedback */
+      .form-container {
+        width: 60%;
+        padding: 50px;
+        background-color: #f5f5f5;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      h1 {
+        font-size: 2em;
+        margin-bottom: 20px;
+        color: #333;
+      }
+
+      form {
+        width: 100%;
+        max-width: 500px;
+        display: flex;
+        flex-direction: column;
+      }
+
+      label {
+        font-weight: bold;
+        margin: 15px 0 5px;
+        color: #444;
+      }
+
+      input,
+      select,
+      textarea {
+        padding: 10px;
+        font-size: 1em;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        width: 100%;
+      }
+
+      button {
+        padding: 15px;
+        font-size: 1em;
+        border: none;
+        border-radius: 5px;
+        background-color: #4caf50;
+        color: white;
+        cursor: pointer;
+        margin-top: 15px;
+      }
+
+      button:hover {
+        background-color: #45a049;
+      }
+
+      /* Lado direito - Imagem de fundo */
+      .background {
+        width: 40%;
+        background: url("https://hoteldel.com/wp-content/uploads/2021/01/hotel-del-coronado-views-suite-K1TOS1-K1TOJ1-1600x900-1.jpg")
+          no-repeat center center/cover;
+        position: relative;
+      }
+
+      /* Texto sobreposto */
+      .background::before {
+        content: "Valorizamos Seu Feedback";
+        font-size: 3em;
+        color: white;
+        font-weight: bold;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      /* Avaliação por Estrelas */
+      .star-rating input {
+        display: none;
+      }
+
+      .star-rating label {
+        font-size: 2em;
+        color: #ccc;
+        cursor: pointer;
+        margin-right: 5px;
+      }
+
+      .star-rating input:checked ~ label {
+        color: #ffb400;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Lado esquerdo: Formulário de Feedback -->
+    <div class="form-container">
+      <h1>Feedback do Usuário</h1>
+      <form action="file:///C:/submit_feedback" method="post">
+        <label for="name">Nome Completo:</label>
+        <input type="text" id="name" name="name" required="">
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required="">
+
+        <label for="rating">Avaliação:</label>
+        <div class="star-rating">
+          <!-- Agora as estrelas vão de 1 a 5, da esquerda para a direita -->
+          <input type="radio" id="star1" name="rating" value="1" required="">
+          <label for="star1">★</label>
+
+          <input type="radio" id="star2" name="rating" value="2">
+          <label for="star2">★</label>
+
+          <input type="radio" id="star3" name="rating" value="3">
+          <label for="star3">★</label>
+
+          <input type="radio" id="star4" name="rating" value="4">
+          <label for="star4">★</label>
+
+          <input type="radio" id="star5" name="rating" value="5">
+          <label for="star5">★</label>
+        </div>
+        <label for="comments">Comentários:</label>
+        <textarea id="comments" name="comments" rows="5" required=""></textarea>
+
+        <label for="improvement">Sugestões de Melhoria:</label>
+        <textarea id="improvement" name="improvement" rows="5"></textarea>
+
+        <button type="submit">Enviar Feedback</button>
+      </form>
+    </div>
+
+    <!-- Lado direito: Imagem de fundo -->
+    <div class="background"></div>
+
+    <script>
+      // Função para atualizar as cores das estrelas com base na seleção
+      function updateStars() {
+        // Pega todos os inputs e labels
+        var stars = document.querySelectorAll('.star-rating input');
+        var labels = document.querySelectorAll('.star-rating label');
+
+        // Para cada estrela, verifique se ela foi selecionada e altere a cor das anteriores
+        stars.forEach(function(star, index) {
+          star.addEventListener('change', function() {
+            // Resetar as cores de todas as estrelas
+            labels.forEach(function(label) {
+              label.style.color = '#ccc';
+            });
+
+            // Alterar a cor das estrelas com base na seleção
+            for (var i = 0; i <= index; i++) {
+              labels[i].style.color = '#ffb400'; // Amarelo
+            }
+          });
+        });
+      }
+
+      // Chama a função ao carregar a página
+      window.onload = updateStars;
+    </script>
+  </body>
+</html>

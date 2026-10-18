@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Toptel</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        display: flex;
+        height: 100vh;
+      }
+
+      /* Left side - Form */
+      .form-container {
+        width: 60%;
+        padding: 50px;
+        background-color: #f5f5f5;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      h1 {
+        font-size: 2em;
+        margin-bottom: 20px;
+        color: #333;
+      }
+
+      form {
+        width: 100%;
+        max-width: 500px;
+        display: flex;
+        flex-direction: column;
+      }
+
+      label {
+        font-weight: bold;
+        margin: 15px 0 5px;
+        color: #444;
+      }
+
+      input,
+      select {
+        padding: 10px;
+        font-size: 1em;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        width: 100%;
+      }
+
+      button {
+        padding: 15px;
+        font-size: 1em;
+        border: none;
+        border-radius: 5px;
+        background-color: #4caf50;
+        color: white;
+        cursor: pointer;
+        margin-top: 15px;
+      }
+
+      button:hover {
+        background-color: #45a049;
+      }
+
+      /* Right side - Background */
+      .background {
+        width: 80%;
+        background: url("https://hoteldel.com/wp-content/uploads/2021/01/hotel-del-coronado-views-suite-K1TOS1-K1TOJ1-1600x900-1.jpg")
+          no-repeat center center/cover;
+        position: relative;
+      }
+
+      /* Overlay text */
+      .background::before {
+        content: "Book Your Stay";
+        font-size: 3em;
+        color: white;
+        font-weight: bold;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Left Side: Booking Form -->
+    <div class="form-container">
+      <h1>Hotel Booking</h1>
+      <form action="/submit_booking" method="post">
+        <label for="name">Full Name:</label>
+        <input type="text" id="name" name="name" required />
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required />
+
+        <label for="checkin">Check-in Date:</label>
+        <input type="date" id="checkin" name="checkin" required />
+
+        <label for="checkout">Check-out Date:</label>
+        <input type="date" id="checkout" name="checkout" required />
+
+        <label for="guests">Number of Guests:</label>
+        <select id="guests" name="guests" required>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+
+        <label for="room">Room Preference:</label>
+        <select id="room" name="room" required>
+          <option value="single">Single Room</option>
+          <option value="double">Double Room</option>
+          <option value="suite">Suite</option>
+        </select>
+
+        <button type="submit">Book Now</button>
+      </form>
+    </div>
+
+    <!-- Right Side: Background Image -->
+    <div class="background"></div>
+  </body>
+</html>
