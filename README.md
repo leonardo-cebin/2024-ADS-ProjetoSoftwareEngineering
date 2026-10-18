@@ -9,7 +9,7 @@ Com um modelo de avaliação robusto e uma rede crescente de usuários e anfitri
 
 <h2>Nosso time</h2>
 <ul>
-  <li>Leonardo Cebin -  Líder e desenvolvedor</li>
+  <li>Leonardo Cebin -  Líder do projeto</li>
   <li>Mariana Souza - Desenvolvedora</li>
   <li>Enzo Guimarães - Documentação</li>
   <li>Igor Augusto - Analista de Negócios</li>
